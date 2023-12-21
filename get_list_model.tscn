@@ -62,7 +62,6 @@ layout_mode = 2
 text = "Response"
 
 [node name="FinishedLabel" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 label_settings = SubResource("LabelSettings_6qyb2")
 
