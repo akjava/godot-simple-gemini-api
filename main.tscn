@@ -1,0 +1,84 @@
+[gd_scene load_steps=3 format=3 uid="uid://bfpwf6thusdxn"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_lwiex"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3l24x"]
+font_size = 32
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lwiex")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Godot Simple Gemini API"
+label_settings = SubResource("LabelSettings_3l24x")
+horizontal_alignment = 1
+
+[node name="KeyContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/KeyContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+text = "This sample need api key from settings.json . (this file added .gitignore)
+make by yourself({\"api_key\":KEY} or  set and click set api button.
+how to get key see https://ai.google.dev/tutorials/setup"
+editable = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/KeyContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="KeyEdit" type="LineEdit" parent="MarginContainer/HBoxContainer/VBoxContainer/KeyContainer/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="SetAPIButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/KeyContainer/HBoxContainer"]
+layout_mode = 2
+text = "Set API Key"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+text = "Click to open Example Scene.No way to back from selected scene so far"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 20
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/ButtonContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 4
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/KeyContainer/HBoxContainer/SetAPIButton" to="." method="_on_set_api_button_pressed"]
