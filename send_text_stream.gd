@@ -15,7 +15,7 @@ func _ready():
 @onready var path_text_regex = RegEx.new()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 var receiving = false
-func _process(delta):
+func _process(_delta):
 	
 	path_text_regex.compile(r'"parts":\s*\[\s*{\s*"text":\s*"((?:[^"\\]|\\.)*)"\s*}\s*\]')
 			
@@ -56,9 +56,8 @@ func _on_send_button_pressed():
 
 func _request_text(prompt):
 	find_child("ResponseEdit").text = ""
-	var url = "https://generativelanguage.googleapis.com/v1/models/gemini-pro:streamGenerateContent?key=%s"%api_key
 	
-	var body = JSON.new().stringify({
+	var body = JSON.stringify({
 		"contents":[
 			{ "parts":[{
 				"text": prompt
@@ -94,13 +93,19 @@ func _request_text(prompt):
 	#while http_client.get_status() == HTTPClient.STATUS_CONNECTING or http_client.get_status() == HTTPClient.STATUS_RESOLVING:
 	#	print(http_client.get_status())
 		
-	var query_string = http_client.query_string_from_dict(fields)
 	
 	var error = http_client.request(HTTPClient.METHOD_POST,"/v1/models/gemini-pro:streamGenerateContent?key=%s"%api_key, ["User-Agent: Pirulo/1.0 (Godot)","Accept: */*","Content-Type: application/json"], body)
 	if error != OK:
 		push_error("requested but error happen code = %s"%error)
 
-func _on_request_completed(result, responseCode, headers, body):
+func _on_request_completed(result, responseCode, _headers, body):
+	if result != OK:
+		print("request faild error code: ", result)
+		return
+	if responseCode != 200:
+		print("response is not 200 error code: ", responseCode)
+		return
+		
 	find_child("SendButton").disabled = false
 	var json = JSON.new()
 	json.parse(body.get_string_from_utf8())

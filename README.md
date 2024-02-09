@@ -1,4 +1,5 @@
 # godot-simple-gemini-api
+This is Example Project not addon.
 As simply as possible, call the Gemini API.
 ## API KEYS
 This app requires an API key. Save it in settings.json. Take care of your keys. By default, it is added to .gitignore.

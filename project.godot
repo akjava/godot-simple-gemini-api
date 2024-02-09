@@ -19,3 +19,7 @@ config/icon="res://icon.png"
 
 window/size/viewport_width=800
 window/size/viewport_height=680
+
+[dotnet]
+
+project/assembly_name="Godot-simple-gemini-api"

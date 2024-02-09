@@ -5,9 +5,9 @@ var settings_path = "res://settings.json"
 func _ready():
 	var container = find_child("GridContainer")
 	var names = ["send_text","send_text_safety","send_text_config","send_text_stream","chat_text","send_image","get_embedding","batch_embedding","count_tokens","get_list_model"]
-	for name in names:
+	for node_name in names:
 		var button = Button.new()
-		button.text = name
+		button.text = node_name
 		button.connect("pressed", Callable(self, "_on_button_pressed").bind(button))
 		container.add_child(button)
 		
@@ -17,7 +17,7 @@ func _on_button_pressed(button):
 	var scene_path = "res://"+button.text+".tscn"
 	get_tree().change_scene_to_file(scene_path)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 func _update_ui():
