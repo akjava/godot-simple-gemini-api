@@ -34,7 +34,7 @@ func _request_get_model(model_name = ""):
 	var version = _get_option_selected_text("Version")
 	var url = "https://generativelanguage.googleapis.com/%s/models/%s?key=%s"%[version,model_name,api_key]
 	
-	
+
 	find_child("ListModelButton").disabled = true
 	find_child("ModelButton").disabled = true
 	var error = http_request.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_GET)
