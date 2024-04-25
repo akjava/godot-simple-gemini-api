@@ -6,6 +6,7 @@ extends Control
 var api_key = ""
 var http_request
 var conversations = []
+var last_user_prompt
 func _ready():
 	var settings = JSON.parse_string(FileAccess.get_file_as_string("res://settings.json"))
 	api_key = settings.api_key
@@ -22,7 +23,7 @@ func _ready():
 		option.add_item("BLOCK_MEDIUM_AND_ABOVE")
 		option.add_item("BLOCK_ONLY_HIGH")
 		
-	conversations.append({"user":"I am aki","model":"Hello aki"})
+	#conversations.append({"user":"I am aki","model":"Hello aki"})
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -77,7 +78,7 @@ func _request_chat(prompt):
 			},
 			]
 	})
-	
+	last_user_prompt = prompt
 	print("send-content"+str(body))
 	var error = http_request.request(url, ["Content-Type: application/json"], HTTPClient.METHOD_POST, body)
 	
@@ -148,4 +149,5 @@ func _on_request_completed(result, responseCode, headers, body):
 		find_child("FinishedLabel").visible = false
 		var newStr = response.candidates[0].content.parts[0].text
 		find_child("ResponseEdit").text = newStr
+		conversations.append({"user":"%s"%last_user_prompt,"model":"%s"%newStr})
 	
