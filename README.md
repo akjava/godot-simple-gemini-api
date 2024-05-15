@@ -1,7 +1,14 @@
 # godot-simple-gemini-api
+## Gemini  Pricing
+Watch out! not free now
+https://ai.google.dev/pricing
+## What is this?
 This is Example Project not addon.
 As simply as possible, call the Gemini API.
 ## Update
+### 2024-May-16
+update about pricing
+confirm Gemini 1.5 Flash ,just replace from "v1beta/models/gemini-1.5-pro-latest" to "v1beta/models/gemini-1.5-flash-latest"
 ### 2024-Apr-10
 add Gemini 1.5 Pro example 'chat_1_5'
 ## API KEYS
