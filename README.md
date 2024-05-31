@@ -1,7 +1,14 @@
 # godot-simple-gemini-api
 ## Gemini  Pricing
-Watch out! not free now
+Watch out! free version are too limited
 https://ai.google.dev/pricing
+
+free limitation  2024/may
+### Gemini 1.5 Pro
+2 request per minute/50 request per day.
+### 1.5 Flash/1.0
+15 request per minute/1500 request per day.
+
 ## What is this?
 This is Example Project not addon.
 As simply as possible, call the Gemini API.
