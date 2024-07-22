@@ -3,7 +3,11 @@
 Watch out! free version are too limited
 https://ai.google.dev/pricing
 
-free limitation  2024/may
+Gemma is not part of gemini-api.that is local local LLM.
+usin Gemma with Godot ,LLamaSharp is the easy way?
+https://github.com/SciSharp/LLamaSharp
+
+
 ### Gemini 1.5 Pro
 2 request per minute/50 request per day.
 ### 1.5 Flash/1.0
@@ -13,6 +17,9 @@ free limitation  2024/may
 This is Example Project not addon.
 As simply as possible, call the Gemini API.
 ## Update
+### 2024-jul-22
+add readme about gemma
+Gemini API has only v1 and v1beta.
 ### 2024-May-16
 update about pricing
 confirm Gemini 1.5 Flash ,just replace from "v1beta/models/gemini-1.5-pro-latest" to "v1beta/models/gemini-1.5-flash-latest"
