@@ -16,7 +16,11 @@ https://github.com/SciSharp/LLamaSharp
 ## What is this?
 This is Example Project not addon.
 As simply as possible, call the Gemini API.
+Context caching not supported
+function calling coming soon
 ## Update
+### 2024-jul-29
+add code executer example
 ### 2024-jul-22
 add readme about gemma
 Gemini API has only v1 and v1beta.
