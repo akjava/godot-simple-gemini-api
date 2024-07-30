@@ -1,0 +1,349 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdhlsx5wlo55l"]
+
+[ext_resource type="Script" path="res://chat_moa.gd" id="1_mjsig"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6qyb2"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2cd3"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_ach21"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_djnfv"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_urr3g"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_v1t8f"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_7gwuk"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_uo211"]
+font_size = 13
+
+[sub_resource type="LabelSettings" id="LabelSettings_www2n"]
+font_size = 13
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mjsig")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MoeContainer" type="VBoxContainer" parent="MarginContainer/TabContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+text = "User"
+
+[node name="OldAgentContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+visible = false
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1.0"
+
+[node name="SystemLineEdit1" type="LineEdit" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "You are a seasoned data scientist"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "1.5 Flash"
+
+[node name="SystemLineEdit2" type="LineEdit" parent="MarginContainer/TabContainer/MoeContainer/OldAgentContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "you are gifted game creator"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InputEdit" type="TextEdit" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "What is the best way to make idea?"
+wrap_mode = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Cycle"
+
+[node name="CycleOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer5"]
+layout_mode = 2
+item_count = 5
+selected = 1
+popup/item_0/text = "1"
+popup/item_0/id = 1
+popup/item_1/text = "2"
+popup/item_1/id = 2
+popup/item_2/text = "3"
+popup/item_2/id = 3
+popup/item_3/text = "4"
+popup/item_3/id = 4
+popup/item_4/text = "5"
+popup/item_4/id = 5
+
+[node name="SendButton" type="Button" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+text = "Send"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+
+[node name="MessagesOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer6"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "1.0"
+
+[node name="TextEditA" type="TextEdit" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Flash"
+
+[node name="TextEditB" type="TextEdit" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer4/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Final Model"
+
+[node name="FinishedLabel" type="Label" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer3"]
+visible = false
+layout_mode = 2
+label_settings = SubResource("LabelSettings_6qyb2")
+
+[node name="MainModelOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer3"]
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "gemini-1.5-flash-latest"
+popup/item_0/id = 0
+popup/item_1/text = "gemini-1.5-pro-latest"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TabContainer/MoeContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ResponseEdit" type="TextEdit" parent="MarginContainer/TabContainer/MoeContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+editable = false
+wrap_mode = 1
+
+[node name="AgentContainer" type="VBoxContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "Agents"
+
+[node name="LineEdit1" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are a seasoned data scientist"
+
+[node name="LineEdit2" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "you are gifted game creator"
+
+[node name="LineEdit3" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are a graphic designer creating a visual identity for a brand"
+
+[node name="LineEdit4" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are a musician composing a piece of music in a specific genre."
+
+[node name="LineEdit5" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are a marketing consultant advising a client on their social media strategy."
+
+[node name="LineEdit6" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are a historian researching  of the Rome Empire"
+
+[node name="LineEdit7" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
+layout_mode = 2
+text = "You are just a regular guy who plays the occasional game."
+
+[node name="SafetyContainer" type="VBoxContainer" parent="MarginContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SexuallyExplicit"
+horizontal_alignment = 1
+
+[node name="SexuallyExplicitOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "HateSpeech"
+horizontal_alignment = 1
+
+[node name="HateSpeechOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Harassment"
+horizontal_alignment = 1
+
+[node name="HarassmentOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "DangerousContent"
+horizontal_alignment = 1
+
+[node name="DangerousContentOptionButton" type="OptionButton" parent="MarginContainer/TabContainer/SafetyContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+text = "SexuallyExplicit"
+label_settings = SubResource("LabelSettings_u2cd3")
+horizontal_alignment = 1
+
+[node name="SexuallyExplicitStatus" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_ach21")
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label2" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+text = "HateSpeech"
+label_settings = SubResource("LabelSettings_djnfv")
+horizontal_alignment = 1
+
+[node name="HateSpeechStatus" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer2"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_urr3g")
+horizontal_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label3" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+text = "Harassment"
+label_settings = SubResource("LabelSettings_v1t8f")
+horizontal_alignment = 1
+
+[node name="HarassmentStatus" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer3"]
+layout_mode = 2
+text = "NEGLIGIBLE"
+label_settings = SubResource("LabelSettings_7gwuk")
+horizontal_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label4" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer4"]
+layout_mode = 2
+text = "DangerousContent"
+label_settings = SubResource("LabelSettings_uo211")
+horizontal_alignment = 1
+
+[node name="DangerousContentStatus" type="Label" parent="MarginContainer/TabContainer/SafetyContainer/HBoxContainer4/HBoxContainer4"]
+layout_mode = 2
+text = "NEGLIGIBLE"
+label_settings = SubResource("LabelSettings_www2n")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="MarginContainer/TabContainer/MoeContainer/HBoxContainer5/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="item_selected" from="MarginContainer/TabContainer/MoeContainer/HBoxContainer6/MessagesOptionButton" to="." method="_on_messages_option_button_item_selected"]
+[connection signal="item_selected" from="MarginContainer/TabContainer/MoeContainer/HBoxContainer3/MainModelOptionButton" to="." method="_on_main_model_option_button_item_selected"]
