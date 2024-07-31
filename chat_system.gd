@@ -7,7 +7,7 @@ var api_key = ""
 var http_request
 var conversations = []
 var last_user_prompt
-var target_model = "v1beta/models/gemini-1.5-pro-latest"
+var target_model = "v1beta/models/gemini-1.5-flash-latest"
 func _ready():
 	var settings = JSON.parse_string(FileAccess.get_file_as_string("res://settings.json"))
 	api_key = settings.api_key
@@ -15,6 +15,10 @@ func _ready():
 	add_child(http_request)
 	http_request.connect("request_completed", _on_request_completed)
 
+
+
+	_update_conversation_label()
+	
 	var  option_keys = ["SexuallyExplicit","HateSpeech","Harassment","DangerousContent"]
 	for key in option_keys:
 		var option = find_child(key+"OptionButton")
@@ -24,8 +28,7 @@ func _ready():
 		option.add_item("BLOCK_MEDIUM_AND_ABOVE")
 		option.add_item("BLOCK_ONLY_HIGH")
 		
-	var name = target_model.split("/")[-1]
-	find_child("ModelName").text = name
+	
 	#conversations.append({"user":"I am aki","model":"Hello aki"})
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -60,8 +63,18 @@ func _request_chat(prompt):
 			"role":"user",
 			"parts":[{"text":prompt}]
 		})
+	
+	
+	## System Part [] or [{"text":"you are assistant"}]
+	var system_prompt = find_child("SystemInputEdit").text
+	var system_parts = []
+	if system_prompt!="":
+		system_parts.append({"text":system_prompt})
 	var body = JSON.new().stringify({
 		"contents":contents_value
+		,"system_instruction":{
+				"parts":system_parts
+			}
 		,# basically useless,just they say 'I cant talk about that.'
 		"safety_settings":[
 			{
@@ -154,11 +167,29 @@ func _on_request_completed(result, responseCode, headers, body):
 		var newStr = response.candidates[0].content.parts[0].text
 		find_child("ResponseEdit").text = newStr
 		conversations.append({"user":"%s"%last_user_prompt,"model":"%s"%newStr})
+		_update_conversation_label()
+
+func _update_conversation_label():
 	
-func update_main_model():
+	var label = "%3d conversations"%[conversations.size()]
+	find_child("ConversationLabel").text = label
+	
+	var send_label = "Start New Conversation"
+	if conversations.size()>0:
+		send_label= "Continue Conversation"
+	find_child("SendButton").text = send_label
+	
+		
+	
+
+func _on_clear_conversation_button_pressed():
+	conversations.clear()
+	_update_conversation_label()
+
+func _update_main_model():
 	var option = find_child("MainModelOptionButton")
 	var text = option.get_item_text(option.get_selected_id())
 	target_model = "v1beta/models/%s"%[text]
-
+	
 func _on_main_model_option_button_item_selected(index):
-	update_main_model()
+	_update_main_model()

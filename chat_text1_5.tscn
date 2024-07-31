@@ -51,164 +51,164 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="ChatContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 text = "User"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 
-[node name="InputEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="InputEdit" type="TextEdit" parent="MarginContainer/ChatContainer/HBoxContainer"]
 custom_minimum_size = Vector2(240, 280)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "How are you?"
 wrap_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "SexuallyExplicit"
 horizontal_alignment = 1
 
-[node name="SexuallyExplicitOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="SexuallyExplicitOptionButton" type="OptionButton" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "HateSpeech"
 horizontal_alignment = 1
 
-[node name="HateSpeechOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="HateSpeechOptionButton" type="OptionButton" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Harassment"
 horizontal_alignment = 1
 
-[node name="HarassmentOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="HarassmentOptionButton" type="OptionButton" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "DangerousContent"
 horizontal_alignment = 1
 
-[node name="DangerousContentOptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+[node name="DangerousContentOptionButton" type="OptionButton" parent="MarginContainer/ChatContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="SendButton" type="Button" parent="MarginContainer/ChatContainer/HBoxContainer5"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 text = "Send"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label2" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer3"]
 layout_mode = 2
 text = "Model"
 
-[node name="FinishedLabel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="FinishedLabel" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer3"]
 visible = false
 layout_mode = 2
 label_settings = SubResource("LabelSettings_6qyb2")
 
-[node name="ModelName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="ModelName" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer3"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 
-[node name="ResponseEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="ResponseEdit" type="TextEdit" parent="MarginContainer/ChatContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(250, 280)
 layout_mode = 2
 size_flags_horizontal = 3
 editable = false
 wrap_mode = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ChatContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer"]
 layout_mode = 2
 text = "SexuallyExplicit"
 label_settings = SubResource("LabelSettings_u2cd3")
 horizontal_alignment = 1
 
-[node name="SexuallyExplicitStatus" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer"]
+[node name="SexuallyExplicitStatus" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_ach21")
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer2"]
 layout_mode = 2
 text = "HateSpeech"
 label_settings = SubResource("LabelSettings_djnfv")
 horizontal_alignment = 1
 
-[node name="HateSpeechStatus" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer2"]
+[node name="HateSpeechStatus" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer2"]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_urr3g")
 horizontal_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+[node name="Label3" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer3"]
 layout_mode = 2
 text = "Harassment"
 label_settings = SubResource("LabelSettings_v1t8f")
 horizontal_alignment = 1
 
-[node name="HarassmentStatus" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer3"]
+[node name="HarassmentStatus" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer3"]
 layout_mode = 2
 text = "NEGLIGIBLE"
 label_settings = SubResource("LabelSettings_7gwuk")
 horizontal_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/ChatContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer4"]
+[node name="Label4" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer4"]
 layout_mode = 2
 text = "DangerousContent"
 label_settings = SubResource("LabelSettings_uo211")
 horizontal_alignment = 1
 
-[node name="DangerousContentStatus" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4/HBoxContainer4"]
+[node name="DangerousContentStatus" type="Label" parent="MarginContainer/ChatContainer/HBoxContainer4/HBoxContainer4"]
 layout_mode = 2
 text = "NEGLIGIBLE"
 label_settings = SubResource("LabelSettings_www2n")
 horizontal_alignment = 1
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer5/SendButton" to="." method="_on_send_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ChatContainer/HBoxContainer5/SendButton" to="." method="_on_send_button_pressed"]

@@ -9,6 +9,7 @@ var conversations = []
 var last_user_prompt
 var main_model = "v1beta/models/gemini-1.5-pro-latest"
 
+# TODO save external
 var REFERENCE_SYSTEM_PROMPT = """\
 		You have been provided with a set of responses from various open-source models to the latest user query. 
 		Your task is to synthesize these responses into a single, high-quality response. 
@@ -39,21 +40,16 @@ func _ready():
 	update_main_model()
 	
 	
-	find_child("LineEdit1").text = "You are a writer exploring the concept of artificial intelligence and its potential to change our world."
-	find_child("LineEdit2").text = "You are a software developer creating an AI assistant that can help people learn a new skill."
-	find_child("LineEdit3").text = "You are a painter creating a surreal landscape that represents the inner workings of a human mind."
-	find_child("LineEdit4").text = "You are a powerful sorcerer in a medieval fantasy realm, tasked with crafting a unique spell to protect your village from a looming threat."
-	find_child("LineEdit5").text = "You are a celestial being observing the rise and fall of civilizations across countless galaxies, reflecting on the nature of life, death, and the universe"
-	find_child("LineEdit6").text = "You are a time traveler who accidentally swapped bodies with a grumpy old cat. Describe your daily life and your attempts to get back to your own body."
-	find_child("LineEdit7").text = "You are a scientist contemplating the possibility of life on other planets. What are the biggest challenges and potential solutions in the search for extraterrestrial life?"
-	
+	#find_child("LineEdit1").text = "You are a writer exploring the concept of artificial intelligence and its potential to change our world."
+	#find_child("LineEdit2").text = "You are a software developer creating an AI assistant that can help people learn a new skill."
+	#find_child("LineEdit3").text = "You are a painter creating a surreal landscape that represents the inner workings of a human mind."
+	#find_child("LineEdit4").text = "You are a powerful sorcerer in a medieval fantasy realm, tasked with crafting a unique spell to protect your village from a looming threat."
+	#find_child("LineEdit5").text = "You are a celestial being observing the rise and fall of civilizations across countless galaxies, reflecting on the nature of life, death, and the universe"
+	#find_child("LineEdit6").text = "You are a time traveler who accidentally swapped bodies with a grumpy old cat. Describe your daily life and your attempts to get back to your own body."
+	#find_child("LineEdit7").text = "You are a scientist contemplating the possibility of life on other planets. What are the biggest challenges and potential solutions in the search for extraterrestrial life?"
+	#
 
-	var agent_container = find_child("AgentContainer")
-	for child in agent_container.get_children():
-		if child is LineEdit:
-			var agent = Agent.new()
-			agent.system_prompt = child.text
-			agents.append(agent)
+	
 			#print("append %s"%agent.system_prompt)
 			#break
 			
@@ -72,6 +68,21 @@ func _ready():
 	#find_child("ModelName").text = name
 	#conversations.append({"user":"I am aki","model":"Hello aki"})
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+
+func set_up_agent():
+	agents.clear()
+	var agent_container = find_child("AgentContainer")
+	for child in agent_container.get_children():
+		if child is LineEdit:
+			var text = child.text
+			#print(text)
+			if text == "": # end
+				break
+			var agent = Agent.new()
+			agent.system_prompt = text
+			agents.append(agent)
+	
+
 func _process(delta):
 	pass
 
@@ -80,10 +91,14 @@ func _get_option_selected_text(key):
 	var text = option.get_item_text(option.get_selected_id())
 	return  text
 
-func _add_messages_option_button(label):
-	find_child("MessagesOptionButton").add_item(label)
+func _add_messages_option_button(label,select=true):
+	var option = find_child("MessagesOptionButton")
+	option.add_item(label)
+	if select:
+		option.select(option.item_count-1)
 	
 func _on_send_button_pressed():
+	set_up_agent()
 	conversations = []
 	messages_option_button_dic.clear()
 	find_child("MessagesOptionButton").clear()
@@ -126,7 +141,7 @@ func _on_send_button_pressed():
 		for j in range(cycle_conversations.size()):
 			var index = j+1
 			var current_response = cycle_conversations[j]["model"]
-			response_text +=  "[Assistant%s]%s\n"%[index,current_response]
+			response_text +=  "<Assistant%s>\n%s\n</assistant%s>\n\n"%[index,current_response,index]
 			conversations.append(cycle_conversations[j])
 		
 		final_system_prompt = REFERENCE_SYSTEM_PROMPT.replace("{responses}",response_text)
@@ -136,12 +151,19 @@ func _on_send_button_pressed():
 	if error_main != OK:
 		push_error("requested but error happen code = %s"%error_main)
 		return
+	
 		
 	
 	var res_main = await http_request.request_completed
 	var main_response = _get_response_text(res_main[0],res_main[1],res_main[2],res_main[3])
 	find_child("ResponseEdit").text = main_response
 	find_child("SendButton").disabled = false 
+	
+	var label = "Final"
+	_add_messages_option_button(label,false)
+	var dic = {"user":input,"model":main_response,"system":final_system_prompt}
+	messages_option_button_dic[label] = dic
+	#conversations.append(dic) #not add re submit yet
 
 
 func _request_chat(model_name,prompt,system_prompt=""):

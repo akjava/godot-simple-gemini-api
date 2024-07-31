@@ -229,7 +229,7 @@ text = "You are a historian researching  of the Rome Empire"
 
 [node name="LineEdit7" type="LineEdit" parent="MarginContainer/TabContainer/AgentContainer"]
 layout_mode = 2
-text = "You are just a regular guy who plays the occasional game."
+text = "you are mad scientist"
 
 [node name="SafetyContainer" type="VBoxContainer" parent="MarginContainer/TabContainer"]
 visible = false
