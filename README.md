@@ -3,25 +3,19 @@
 Watch out! free version are too limited
 https://ai.google.dev/pricing
 
-Gemma is not part of gemini-api.that is local local LLM.
-usin Gemma with Godot ,LLamaSharp is the easy way?
-https://github.com/SciSharp/LLamaSharp
-
-
-### Gemini 1.5 Pro
-2 request per minute/50 request per day.
-### 1.5 Flash/1.0
-15 request per minute/1500 request per day.
+No more Free API Plan.I have switched to Huggingface PRO.but when some key feature released I'll make examples.
 
 ## What is this?
 This is Example Project not addon.
 As simply as possible, call the Gemini API.
 Context caching not supported
-function calling coming soon
+
 ## Update
+### 2024-nov-04
+add search example for 1.5
+https://ai.google.dev/gemini-api/docs/grounding?lang=rest
 ### 2024-jul-31
 add chat system example for 1.5
-
 ### 2024-jul-29
 add code executer example for 1.5
 ### 2024-jul-22

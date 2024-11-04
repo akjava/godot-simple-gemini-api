@@ -4,7 +4,8 @@ var settings_path = "res://settings.json"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var container = find_child("GridContainer")
-	var names = ["send_text","send_text_safety","send_text_config","send_text_stream","chat_text","chat_text1_5","send_image","get_embedding","batch_embedding","count_tokens","get_list_model","code_execution"]
+	var names = ["send_text","send_text_safety","send_text_config","send_text_stream","chat_text","chat_text1_5","send_image","get_embedding","batch_embedding","count_tokens","get_list_model",
+	"code_execution","chat_system","send_search"]
 	for node_name in names:
 		var button = Button.new()
 		button.text = node_name
